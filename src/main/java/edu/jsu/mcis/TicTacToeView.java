@@ -23,8 +23,14 @@ public class TicTacToeView {
         
         // INSERT YOUR CODE HERE
 
-        return null; // remove this line later!
-
+        int row;
+        int col;
+        System.out.println("Please enter your desired row and column separated by a space.");
+        TicTacToeMove move = new TicTacToeMove(row, col);
+        row = keyboard.nextint();
+        col = keyboard.nextint();
+        
+        return move;
     }
 
     public void showInputError() {
