@@ -64,7 +64,7 @@ public class TicTacToeModel {
     
     /* CONSTRUCTOR */
     
-    public TicTacToeModel(int width) {
+    public TicTacToeModel(int width) { //initialize game
         
         /* Initialize width; X goes first */
         
@@ -96,14 +96,14 @@ public class TicTacToeModel {
         // INSERT YOUR CODE HERE
         if (isValidSquare(row, col)){
             if (getMark(row, col)==Mark.EMPTY){
-                if (xTurn=true){
+                if (isXTurn()==true){
                     board[row][col]=Mark.X;
                     xTurn=false;
                     return true;
                 }
-                else if (xTurn=false){
+                else if (isXTurn()==false){
                     board[row][col]=Mark.O;
-                    xTurn=true;
+                    isXTurn();
                     return true; 
                 }
             }
@@ -118,7 +118,8 @@ public class TicTacToeModel {
         
         /* Return TRUE if the specified location is within the bounds of the board */
         //insert your code here
-        if (row>-1 && row<=width && col>-1 &&
+        
+        if (row>=0 && row<=width && col>=0 &&
             col<=width && board[row][col]==Mark.EMPTY)
             return true;
 
@@ -188,7 +189,7 @@ public class TicTacToeModel {
            winner */
         
         // INSERT YOUR CODE HERE
-        boolean result=false;;
+        boolean result=true;
         //is square marked
         for (int i=0;i<width;i++){
             result=true;
@@ -204,13 +205,14 @@ public class TicTacToeModel {
         if (!result){
             //check rows
             for (int i=0;i<width;i++){
-                result=true;
                 for(int j=0;j<width;j++){
                     if (board[i][j] != board[i+1][j])
                     return false;
-                }
-                if(result)
+                    else{
+                    result=true;
                     break;
+                    }
+                }
             }
         }
 
