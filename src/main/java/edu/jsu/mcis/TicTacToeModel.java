@@ -118,7 +118,7 @@ public class TicTacToeModel {
         
         /* Return TRUE if the specified location is within the bounds of the board */
         //insert your code here
-        if (row>=0 && row<=width && col>=0 &&
+        if (row>-1 && row<=width && col>-1 &&
             col<=width && board[row][col]==Mark.EMPTY)
             return true;
 
@@ -305,7 +305,6 @@ public class TicTacToeModel {
                     for (int k=1;k<width;k++){
                         System.out.print(board[i][k]);
                     }
-                System.out.print("\n");
             } 
         }
         return output.toString();
