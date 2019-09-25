@@ -31,7 +31,6 @@ public class TicTacToeController {
         do{
             view.showBoard(model.toString());
             view.getNextMove(model.isXTurn());
-
         }while (model.isGameover()!=true);
         
         

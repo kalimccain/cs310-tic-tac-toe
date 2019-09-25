@@ -96,12 +96,12 @@ public class TicTacToeModel {
         // INSERT YOUR CODE HERE
         if (isValidSquare(row, col)){
             if (getMark(row, col)==Mark.EMPTY){
-                if (isXTurn()==true){
+                if (isXTurn()){
                     board[row][col]=Mark.X;
                     xTurn=false;
                     return true;
                 }
-                else if (isXTurn()==false){
+                else if (!isXTurn()){
                     board[row][col]=Mark.O;
                     isXTurn();
                     return true; 
@@ -119,8 +119,8 @@ public class TicTacToeModel {
         /* Return TRUE if the specified location is within the bounds of the board */
         //insert your code here
         
-        if (row>=0 && row<=width && col>=0 &&
-            col<=width && board[row][col]==Mark.EMPTY)
+        if (row>=0 && row<width && col>=0 &&
+            col<width)
             return true;
 
         else
@@ -178,9 +178,9 @@ public class TicTacToeModel {
         else if (isTie()){
             return Result.TIE;
         }
-        else {
+        else
             return Result.NONE;
-        }
+        
     }
 	
     private boolean isMarkWin(Mark mark) {
@@ -204,8 +204,8 @@ public class TicTacToeModel {
         
         if (!result){
             //check rows
-            for (int i=0;i<width;i++){
-                for(int j=0;j<width;j++){
+            for (int i=0;i<=width;i++){
+                for(int j=0;j<=width;j++){
                     if (board[i][j] != board[i+1][j])
                     return false;
                     else{
@@ -232,7 +232,7 @@ public class TicTacToeModel {
             //check l-r diagonal
             for (int i=0;i<width-1;i++){
                 result=true;
-                if (board[i][i] != board[i-1][i-1]){
+                if (board[i][i] != board[i+1][i+1]){
                     return false;
                 }
             if (result)
@@ -242,7 +242,7 @@ public class TicTacToeModel {
         if (!result){
             //chec r-l diagonal
             for (int i=0;i<width-1;i++){
-                if (board[width-i-1][i] != board[width-i][i-1])
+                if (board[i][i] != board[i+1][i-1])
                     return false;
             if (result)
                break;
