@@ -95,7 +95,7 @@ public class TicTacToeModel {
         
         // INSERT YOUR CODE HERE
         if (isValidSquare(row, col)){
-            if (isSquareMarked(row, col)==true){
+            if (getMark(row, col)==Mark.EMPTY){
                 if (xTurn=true){
                     board[row][col]=Mark.X;
                     xTurn=false;
@@ -209,6 +209,8 @@ public class TicTacToeModel {
                     if (board[i][j] != board[i+1][j])
                     return false;
                 }
+                if(result)
+                    break;
             }
         }
 

@@ -25,11 +25,11 @@ public class TicTacToeView {
 
         int row;
         int col;
-        System.out.println("Please enter your desired row and column separated by a space.");
+        System.out.println("Please enter your desired row and column separated by a space. Player X goes first!");
+        row = keyboard.nextInt();
+        col = keyboard.nextInt();
         TicTacToeMove move = new TicTacToeMove(row, col);
-        row = keyboard.nextint();
-        col = keyboard.nextint();
-        
+
         return move;
     }
 

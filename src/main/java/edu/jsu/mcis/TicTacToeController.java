@@ -1,5 +1,7 @@
 package edu.jsu.mcis;
 
+import edu.jsu.mcis.TicTacToeModel.Mark;
+
 public class TicTacToeController {
 
     private final TicTacToeModel model;
@@ -26,8 +28,13 @@ public class TicTacToeController {
            using the View's "showInputError()" if the move is invalid. */
 
         // INSERT YOUR CODE HERE
+        do{
+            view.showBoard(model.toString());
+            view.getNextMove(model.isXTurn());
+        }while (model.isGameover()!=true);
         
-        /* After the game is over, show the final board and the winner */
+        
+        /* After the game is over, show the final board an the winner */
 
         view.showBoard(model.toString());
 
