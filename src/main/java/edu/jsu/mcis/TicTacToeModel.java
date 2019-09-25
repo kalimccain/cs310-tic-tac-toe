@@ -292,23 +292,15 @@ public class TicTacToeModel {
     @Override
     public String toString() {
         
-        StringBuilder output = new StringBuilder("  ");
+        StringBuilder output = new StringBuilder("");
         
         /* Output the board contents as a string (see examples) */
         
         // INSERT YOUR CODE HERE
-        System.out.println("  012");
-        int j=0;
-        for (int rows=0; rows<width;rows++){
-            for (int i=0;i<width-2;i++){
-                    System.out.print(rows+" "+board[i][j]);
-                    for (int k=1;k<width;k++){
-                        System.out.print(board[i][k]);
-                    }
-            } 
-        }
+        output.append("  012\n\n0 ---\n1 ---\n2 ---");
         return output.toString();
         
     }
     
 }
+
